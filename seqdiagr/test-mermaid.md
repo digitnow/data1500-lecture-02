@@ -17,5 +17,16 @@ sequenceDiagram
     Main->>Server: createContext("/api/students", handleStudentsRequest)
     Main->>Server: start()
     Note right of Main: Server kjører og lytter på port 8000
+
+    Note over User, Map: Håndtering av forespørsel (GET /api/students)
+    User->>Server: HTTP GET /api/students
+    Server->>+Handler: handleStudentsRequest(exchange)
+    Handler->>Map: Hent alle studenter (students.values())
+    Map-->>Handler: Returnerer liste av Student-objekter
+    loop For hver student
+        Handler->>Handler: student.toJSON()
+    end
+    Handler->>Handler: Bygg JSON-array
+    Handler->>User: sendResponse(200, JSON)
 ```
 
