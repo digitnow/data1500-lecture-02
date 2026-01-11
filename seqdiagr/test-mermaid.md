@@ -9,6 +9,7 @@ sequenceDiagram
     participant CSV as CSV File
     participant Map as Student Map
 
+    Note over Main, Map: Oppstart av server
     Main->>+CSV: loadStudentsFromCSV(csvFilePath)
     CSV-->>Main: Returnerer linjer
     Main->>+Map: Parser og lagrer Student-objekter
