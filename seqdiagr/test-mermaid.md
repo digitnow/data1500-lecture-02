@@ -2,24 +2,18 @@
 
 ```mermaid
 sequenceDiagram
-    participant SE as Software Engineer
-    participant GH as GitHub
-    participant CI as CI Server
-    participant DR as Docker Registry
-    participant KC as K8s Cluster
-    participant MS as Microservice
-    participant DB as Database
-    participant MON as Monitoring
+    participant User as Bruker/Nettleser
+    participant Main as StudentAPI (Main)
+    participant Server as HttpServer
+    participant Handler as RequestHandler
+    participant CSV as CSV File
+    participant Map as Student Map
 
-    SE->>+GH: Makes code changes
-    GH-->>+CI: Detects new commit
-    CI-->>GH: Return
-    CI->>+DR: Builds new container image
-    DR-->>+KC: Pushes image
-    KC->>+MS: Deploys service on scale
-    MS->>+DB: Migrates data model
-    loop For hver student
-        MON->>MON: student.toJSON()
-    end
+    Main->>+CSV: loadStudentsFromCSV(csvFilePath)
+    CSV-->>Main: Returnerer linjer
+    Main->>+Map: Parser og lagrer Student-objekter
+    Main->>+Server: create(port)
+    Main->>Server: createContext("/api/students", handleStudentsRequest)
+    Main->>Server: start()
 ```
 
