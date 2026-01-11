@@ -12,11 +12,11 @@ sequenceDiagram
     participant MON as Monitoring
 
     SE->>+GH: Makes code changes
-    GH-->>-CI: Detects new commit
+    GH-->>+CI: Detects new commit
     CI->>+DR: Builds new container image
-    DR-->>-KC: Pushes image
+    DR-->>+KC: Pushes image
     KC->>+MS: Deploys service on scale
-    MS-->>-DB: Migrates data model
+    MS-->>+DB: Migrates data model
     DB-->>-MON: Sends metrics
-
+    MON-->>-SE: Displays metrics
 ```
