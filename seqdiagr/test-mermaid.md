@@ -13,6 +13,7 @@ sequenceDiagram
 
     SE->>+GH: Makes code changes
     GH-->>+CI: Detects new commit
+    CI-->>GH: Return
     CI->>+DR: Builds new container image
     DR-->>+KC: Pushes image
     KC->>+MS: Deploys service on scale
