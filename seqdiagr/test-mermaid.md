@@ -2,11 +2,21 @@
 
 ```mermaid
 sequenceDiagram
-  Software Engineer->>+GitHub: Makes code changes
-  GitHub-->>-CI Server: Detects new commit
-  CI Server->>+Docker Registry: Builds new container image
-  Docker Registry-->>-K8s Cluster: Pushes image
-  K8s Cluster->>+Microservice: Deploys service on scale
-  Microservice-->>-Database: Migrates data model
-  Database-->>-Monitoring: Sends metrics
+    participant SE as Software Engineer
+    participant GH as GitHub
+    participant CI as CI Server
+    participant DR as Docker Registry
+    participant KC as K8s Cluster
+    participant MS as Microservice
+    participant DB as Database
+    participant MON as Monitoring
+
+    SE->>+GH: Makes code changes
+    GH-->>-CI: Detects new commit
+    CI->>+DR: Builds new container image
+    DR-->>-KC: Pushes image
+    KC->>+MS: Deploys service on scale
+    MS-->>-DB: Migrates data model
+    DB-->>-MON: Sends metrics
+
 ```
