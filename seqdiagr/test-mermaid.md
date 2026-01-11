@@ -17,4 +17,8 @@ sequenceDiagram
     DR-->>+KC: Pushes image
     KC->>+MS: Deploys service on scale
     MS->>+DB: Migrates data model
+    loop For hver student
+        MON->>MON: student.toJSON()
+    end
 ```
+
