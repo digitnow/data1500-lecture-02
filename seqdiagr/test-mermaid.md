@@ -17,6 +17,4 @@ sequenceDiagram
     DR-->>+KC: Pushes image
     KC->>+MS: Deploys service on scale
     MS->>+DB: Migrates data model
-    DB-->>-MON: Sends metrics
-    MON-->>-SE: Displays metrics
 ```
