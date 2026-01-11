@@ -16,5 +16,6 @@ sequenceDiagram
     Main->>+Server: create(port)
     Main->>Server: createContext("/api/students", handleStudentsRequest)
     Main->>Server: start()
+    Note right of Main: Server kjører og lytter på port 8000
 ```
 
