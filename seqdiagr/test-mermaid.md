@@ -28,5 +28,18 @@ sequenceDiagram
     end
     Handler->>Handler: Bygg JSON-array
     Handler->>User: sendResponse(200, JSON)
+
+    Note over User, Map: Håndtering av forespørsel (GET /api/students/101)
+    User->>Server: HTTP GET /api/students/101
+    Server->>Handler: handleStudentRequest(exchange)
+    Handler->>Handler: Parse ID fra URL (parts[3])
+    Handler->>Map: students.containsKey(101)
+    alt Student finnes
+        Map-->>Handler: Returnerer Student-objekt
+        Handler->>Handler: student.toJSON()
+        Handler->>User: sendResponse(200, JSON)
+    else Student finnes ikke
+        Handler->>User: sendResponse(404, Error JSON)
+    end
 ```
 
