@@ -5,7 +5,8 @@ erDiagram
     PRODUCT ||--o{ LINE-ITEM : "ordered in"
 ```
 ```mermaid
-   USER ||--o{ POST : writes
+erDiagram
+    USER ||--o{ POST : writes
     USER ||--o{ COMMENT : makes
     USER {
         int id
