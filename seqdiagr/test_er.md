@@ -1,10 +1,6 @@
 ```mermaid
 erDiagram
-  Product {
-  	type name PK "Comment"
-  }
-  Customer {
-  	type name PK "Comment"
-  }
-  Product ||-o| Customer : ""
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    PRODUCT ||--o{ LINE-ITEM : "ordered in"
 ```
