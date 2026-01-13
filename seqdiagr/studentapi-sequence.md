@@ -42,4 +42,3 @@ sequenceDiagram
         Handler->>User: sendResponse(404, Error JSON)
     end
 ```
-
