@@ -71,5 +71,6 @@ block
     %% columns auto (default)
     l m n o p q r
   end
-  a <--> k
+  space
+  a <--> g
 ```
