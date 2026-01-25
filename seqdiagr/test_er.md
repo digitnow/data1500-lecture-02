@@ -62,15 +62,16 @@ erDiagram
 block
   columns 3
   a:3
+  space
   block:group1:2
     columns 2
     h i j k
   end
-  space
   g
   block:group2:3
     %% columns auto (default)
     l m n o p q r
   end
   a --> g
+  g --> a
 ```
